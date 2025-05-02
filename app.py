@@ -161,7 +161,7 @@ with customer_tab:
     col_n.metric("New Customers", new)
     col_r.metric("Returning Customers", returning)
 
-    pie_size_customer = st.slider("Customer Pie Chart Size", 4, 12, 6, 1, key='customer_pie')
+    pie_size_customer = st.slider("Customer Pie Chart Size", 2, 12, 6, 1, key='customer_pie')
     fig, ax = plt.subplots(figsize=(pie_size_customer, pie_size_customer))
     ax.pie([new, returning], labels=["New", "Returning"], autopct='%1.1f%%', startangle=90,
            colors=[COLOR_TAN, COLOR_BROWN], wedgeprops={'edgecolor': 'white'})
@@ -174,7 +174,7 @@ with order_tab:
     st.subheader("🚚 Order Method Preference")
     pickup_counts = df['pickup/delivery'].value_counts()
 
-    pie_size_order = st.slider("Order Method Pie Chart Size", 4, 12, 6, 1, key='order_pie')
+    pie_size_order = st.slider("Order Method Pie Chart Size", 2, 12, 6, 1, key='order_pie')
     fig, ax = plt.subplots(figsize=(pie_size_order, pie_size_order))
     pickup_counts.plot.pie(autopct='%1.1f%%', labels=pickup_counts.index, ax=ax, startangle=90,
                            colors=[COLOR_TAN, COLOR_BROWN], wedgeprops={'edgecolor': 'white'})
