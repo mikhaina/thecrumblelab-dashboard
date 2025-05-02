@@ -65,7 +65,3 @@ ax3.pie(top5, labels=top5.index, autopct='%1.1f%%', startangle=140)
 ax3.set_title("Top 5 Products")
 st.pyplot(fig3)
 
-# NEW SECTION: Order Frequency by Customer
-st.subheader("👥 Top Repeat Customers")
-customer_orders = filtered_df.groupby('customer')['transaction_id'].nunique().sort_values(ascending=False)
-st.dataframe(customer_orders.reset_index().rename(columns={'transaction_id': 'Order Count'}))
