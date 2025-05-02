@@ -78,8 +78,14 @@ with product_tab:
 
 with customer_tab:
     st.subheader("👥 Top 5 Customers by Order Frequency")
+
     top5_customers = df.groupby('customer')['transaction_id'].nunique().sort_values(ascending=False).head(5)
-    st.dataframe(top5_customers.reset_index().rename(columns={'transaction_id': 'Order Count'}))
+    top5_customers_df = top5_customers.reset_index().rename(columns={'transaction_id': 'Order Count'})
+    
+    view_option = st.selectbox("View customer table?", ["Hide", "Show"])
+    
+    if view_option == "Show":
+        st.dataframe(top5_customers_df)
 
     fig, ax = plt.subplots(figsize=(8, 4))
     top5_customers.plot(kind='barh', ax=ax, color='lightcoral')
