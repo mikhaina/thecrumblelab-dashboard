@@ -111,7 +111,9 @@ with product_tab:
         st.pyplot(fig)
     else:
         top5 = product_sales.head(5)
-        fig, ax = plt.subplots(figsize=(6, 6))
+        # Slider for adjustable pie chart size
+        pie_size = st.slider("Adjust Pie Chart Size", min_value=4, max_value=12, value=6)
+        fig, ax = plt.subplots(figsize=(pie_size, pie_size))
         ax.pie(top5, labels=top5.index, autopct='%1.1f%%', startangle=140,
                colors=[COLOR_BROWN, COLOR_TAN, COLOR_GOLD, "#a9745f", "#c89f7f"])
         ax.set_title("Revenue Share by Product", color=COLOR_BROWN)
