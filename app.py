@@ -131,9 +131,17 @@ with product_tab:
     st.subheader("🥧 All-Time Top 5 Products")
     top5_all_time = df.groupby('product')['amount'].sum().sort_values(ascending=False).head(5)
     fig, ax = plt.subplots(figsize=(6, 6))
-    ax.pie(top5_all_time, labels=top5_all_time.index, autopct='%1.1f%%', startangle=140,
-           colors=[COLOR_BROWN, COLOR_TAN, COLOR_GOLD, "#a9745f", "#c89f7f"])
-    ax.set_title("All-Time Top 5 Products", color=COLOR_BROWN)
+    ax.pie(
+        top5,
+        labels=top5.index,
+        autopct='%1.1f%%',
+        startangle=140,
+        colors=[COLOR_BROWN, COLOR_TAN, COLOR_GOLD, "#a9745f", "#c89f7f"],
+        wedgeprops={'edgecolor': 'white'}
+    )
+    ax.set_title("Revenue Share by Product", color=COLOR_BROWN, pad=20)
+    ax.axis('equal')
+    plt.tight_layout()
     st.pyplot(fig)
 
 with customer_tab:
@@ -161,19 +169,35 @@ with customer_tab:
     col_n.metric("New Customers", new)
     col_r.metric("Returning Customers", returning)
 
-    fig, ax = plt.subplots(figsize=(4, 4))
-    ax.pie([new, returning], labels=["New", "Returning"], autopct='%1.1f%%', startangle=90,
-           colors=[COLOR_TAN, COLOR_BROWN])
-    ax.set_title("New vs Returning Customers", color=COLOR_BROWN)
+    fig, ax = plt.subplots(figsize=(6, 6))
+    ax.pie(
+        [new, returning],
+        labels=["New", "Returning"],
+        autopct='%1.1f%%',
+        startangle=90,
+        colors=[COLOR_TAN, COLOR_BROWN],
+        wedgeprops={'edgecolor': 'white'}
+    )
+    ax.set_title("New vs Returning Customers", color=COLOR_BROWN, pad=20)
+    ax.axis('equal')
+    plt.tight_layout()
     st.pyplot(fig)
 
 with order_tab:
     st.subheader("🚚 Order Method Preference")
     pickup_counts = df['pickup/delivery'].value_counts()
-    fig, ax = plt.subplots(figsize=(4, 4))
-    pickup_counts.plot.pie(autopct='%1.1f%%', labels=pickup_counts.index, ax=ax, startangle=90,
-                           colors=[COLOR_TAN, COLOR_BROWN])
-    ax.set_ylabel("")
-    ax.set_title("Pickup vs Delivery Share", color=COLOR_BROWN)
+    fig, ax = plt.subplots(figsize=(6, 6))
+    ax.pie(
+        pickup_counts,
+        labels=pickup_counts.index,
+        autopct='%1.1f%%',
+        startangle=90,
+        colors=[COLOR_TAN, COLOR_BROWN],
+        wedgeprops={'edgecolor': 'white'}
+    )
+    ax.set_title("Pickup vs Delivery Share", color=COLOR_BROWN, pad=20)
+    ax.axis('equal')
+    plt.tight_layout()
     st.pyplot(fig)
+
 
