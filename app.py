@@ -77,34 +77,23 @@ ax_static.pie(top5_all_time, labels=top5_all_time.index, autopct='%1.1f%%', star
 ax_static.set_title("All-Time Top 5 Products")
 st.pyplot(fig_static)
 
-# 💰 Customer Lifetime Value (Total Amount Spent Per Customer)
-st.subheader("💰 Customer Lifetime Value (CLV)")
 
-clv = df.groupby('customer')['amount'].sum().sort_values(ascending=False)
-st.dataframe(clv.reset_index().rename(columns={'amount': 'Total Spent (₱)'}))
+# 👥 Top 5 Customers by Order Frequency
+st.subheader("👥 Top 5 Customers by Order Frequency")
 
-# Optional bar chart
-fig_clv, ax_clv = plt.subplots(figsize=(8, 4))
-clv.head(10).plot(kind='barh', ax=ax_clv, color='skyblue')
-ax_clv.set_title("Top 10 Customers by Total Spend")
-ax_clv.set_xlabel("Total Spent (₱)")
-ax_clv.invert_yaxis()
-st.pyplot(fig_clv)
+top5_customers = df.groupby('customer')['transaction_id'].nunique().sort_values(ascending=False).head(5)
 
-# 📦 Average Items per Transaction
-st.subheader("📦 Average Items per Transaction")
+# Show as table
+st.dataframe(top5_customers.reset_index().rename(columns={'transaction_id': 'Order Count'}))
 
-items_per_txn = df.groupby('transaction_id')['quantity'].sum()
-avg_items = items_per_txn.mean()
-st.metric("Items per Transaction", f"{avg_items:.2f}")
+# Show as bar chart
+fig_freq, ax_freq = plt.subplots(figsize=(8, 4))
+top5_customers.plot(kind='barh', ax=ax_freq, color='lightcoral')
+ax_freq.set_title("Top 5 Customers by Number of Orders")
+ax_freq.set_xlabel("Number of Orders")
+ax_freq.invert_yaxis()
+st.pyplot(fig_freq)
 
-# 📊 Order Size Distribution
-st.subheader("📊 Order Size Distribution (Items per Order)")
 
-fig_dist, ax_dist = plt.subplots(figsize=(8, 4))
-sns.histplot(items_per_txn, bins=10, kde=False, ax=ax_dist)
-ax_dist.set_title("Distribution of Items per Transaction")
-ax_dist.set_xlabel("Number of Items")
-ax_dist.set_ylabel("Frequency")
-st.pyplot(fig_dist)
+
 
