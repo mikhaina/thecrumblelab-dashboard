@@ -55,7 +55,7 @@ elif chart_type == "Pie Chart":
     top5 = product_sales.head(5)
     fig2, ax2 = plt.subplots(figsize=(6,6))
     ax2.pie(top5, labels=top5.index, autopct='%1.1f%%', startangle=140)
-    ax2.set_title("Top 5 Products - Revenue Share")
+    ax2.set_title("Revenue Share by Product")
     st.pyplot(fig2)
 
 # Daily Sales Trend
@@ -70,10 +70,10 @@ ax2.grid(True)
 st.pyplot(fig2)
 
 # Pie Chart: Top 5 Products
-st.subheader("🥧 Top 5 Products - Revenue Share")
-top5 = product_sales.sort_values(ascending=False).head(5)
-fig3, ax3 = plt.subplots(figsize=(6,6))
-ax3.pie(top5, labels=top5.index, autopct='%1.1f%%', startangle=140)
-ax3.set_title("Top 5 Products")
-st.pyplot(fig3)
+st.subheader("🥧 All-Time Top 5 Products - Revenue Share")
+top5_all_time = df.groupby('product')['amount'].sum().sort_values(ascending=False).head(5)
+fig_static, ax_static = plt.subplots(figsize=(6,6))
+ax_static.pie(top5_all_time, labels=top5_all_time.index, autopct='%1.1f%%', startangle=140)
+ax_static.set_title("All-Time Top 5 Products")
+st.pyplot(fig_static)
 
