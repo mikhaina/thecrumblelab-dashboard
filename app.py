@@ -109,14 +109,21 @@ with product_tab:
         ax.set_ylabel("Product", color=COLOR_BROWN)
         ax.tick_params(colors=COLOR_BROWN)
         st.pyplot(fig)
-    else:
-        top5 = product_sales.head(5)
-        pie_size = st.slider("Adjust Pie Chart Size", min_value=4, max_value=12, value=6, step=1)
 
+    elif chart_type == "Pie Chart":
+        # Slider to adjust Pie chart size dynamically
+        pie_size = st.slider("Pie Chart Size", min_value=4, max_value=12, value=6, step=1)
+
+        top5 = product_sales.head(5)
         fig, ax = plt.subplots(figsize=(pie_size, pie_size))
-        ax.pie(top5, labels=top5.index, autopct='%1.1f%%', startangle=140,
-               colors=[COLOR_BROWN, COLOR_TAN, COLOR_GOLD, "#a9745f", "#c89f7f"],
-               wedgeprops={'edgecolor': 'white'})
+        ax.pie(
+            top5,
+            labels=top5.index,
+            autopct='%1.1f%%',
+            startangle=140,
+            colors=[COLOR_BROWN, COLOR_TAN, COLOR_GOLD, "#a9745f", "#c89f7f"],
+            wedgeprops={'edgecolor': 'white'}
+        )
         ax.set_title("Revenue Share by Product", color=COLOR_BROWN, pad=20)
         ax.axis('equal')
         plt.tight_layout()
