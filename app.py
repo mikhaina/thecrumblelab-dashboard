@@ -10,6 +10,7 @@ COLOR_GOLD = "#8b5a2b"
 COLOR_CREAM = "#f3e9dc"
 
 st.set_page_config(page_title="Crumble Lab Sales Dashboard", layout="wide")
+st.markdown("<h1 style='text-align: center;'>🍪 The Crumble Lab Sales Analytics Dashboard</h1>", unsafe_allow_html=True)
 
 # Global Style for Dashboard
 st.markdown("""
