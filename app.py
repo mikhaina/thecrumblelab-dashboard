@@ -161,7 +161,7 @@ with customer_tab:
     col_n.metric("New Customers", new)
     col_r.metric("Returning Customers", returning)
 
-    fig, ax = plt.subplots()
+    fig, ax = plt.subplots(figsize=(6, 6))
     ax.pie([new, returning], labels=["New", "Returning"], autopct='%1.1f%%', startangle=90,
            colors=[COLOR_TAN, COLOR_BROWN])
     ax.set_title("New vs Returning Customers", color=COLOR_BROWN)
@@ -170,7 +170,7 @@ with customer_tab:
 with order_tab:
     st.subheader("🚚 Order Method Preference")
     pickup_counts = df['pickup/delivery'].value_counts()
-    fig, ax = plt.subplots()
+    fig, ax = plt.subplots(figsize=(6, 6))
     pickup_counts.plot.pie(autopct='%1.1f%%', labels=pickup_counts.index, ax=ax, startangle=90,
                            colors=[COLOR_TAN, COLOR_BROWN])
     ax.set_ylabel("")
