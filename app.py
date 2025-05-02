@@ -157,56 +157,22 @@ with customer_tab:
     customer_orders = df.groupby('customer')['transaction_id'].nunique()
     new = customer_orders[customer_orders == 1].count()
     returning = customer_orders[customer_orders > 1].count()
-    
     col_n, col_r = st.columns(2)
     col_n.metric("New Customers", new)
     col_r.metric("Returning Customers", returning)
-    
-    # ✅ Correct use of slider
-    pie_size_customer = st.slider(
-        "Customer Pie Chart Size",  # This label is REQUIRED
-        min_value=4, 
-        max_value=12, 
-        value=6, 
-        step=1, 
-        key='customer_pie'
-    )
-    
-    fig, ax = plt.subplots(figsize=(pie_size_customer, pie_size_customer))
-    ax.pie(
-        [new, returning],
-        labels=["New", "Returning"],
-        autopct='%1.1f%%',
-        startangle=90,
-        colors=[COLOR_TAN, COLOR_BROWN],
-        wedgeprops={'edgecolor': 'white'}
-    )
-    ax.set_title("New vs Returning Customers", color=COLOR_BROWN, pad=20)
-    ax.axis('equal')
-    plt.tight_layout()
+
+    fig, ax = plt.subplots()
+    ax.pie([new, returning], labels=["New", "Returning"], autopct='%1.1f%%', startangle=90,
+           colors=[COLOR_TAN, COLOR_BROWN])
+    ax.set_title("New vs Returning Customers", color=COLOR_BROWN)
     st.pyplot(fig)
 
 with order_tab:
     st.subheader("🚚 Order Method Preference")
     pickup_counts = df['pickup/delivery'].value_counts()
-    
-    # Slider for dynamic Pie Chart size
-    pie_size_order = st.slider(
-        "Order Method Pie Chart Size", min_value=4, max_value=12, value=6, step=1, key='order_pie'
-    )
-    
-    fig, ax = plt.subplots(figsize=(pie_size_order, pie_size_order))
-    pickup_counts.plot.pie(
-        autopct='%1.1f%%',
-        labels=pickup_counts.index,
-        ax=ax,
-        startangle=90,
-        colors=[COLOR_TAN, COLOR_BROWN],
-        wedgeprops={'edgecolor': 'white'}
-    )
+    fig, ax = plt.subplots()
+    pickup_counts.plot.pie(autopct='%1.1f%%', labels=pickup_counts.index, ax=ax, startangle=90,
+                           colors=[COLOR_TAN, COLOR_BROWN])
     ax.set_ylabel("")
-    ax.set_title("Pickup vs Delivery Share", color=COLOR_BROWN, pad=20)
-    ax.axis('equal')
-    plt.tight_layout()
+    ax.set_title("Pickup vs Delivery Share", color=COLOR_BROWN)
     st.pyplot(fig)
-
