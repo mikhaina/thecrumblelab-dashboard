@@ -154,19 +154,20 @@ with customer_tab:
     st.pyplot(fig)
 
     st.subheader("🔁 New vs Returning Customers")
+
     customer_orders = df.groupby('customer')['transaction_id'].nunique()
     new = customer_orders[customer_orders == 1].count()
     returning = customer_orders[customer_orders > 1].count()
-    
+
     col_n, col_r = st.columns(2)
     col_n.metric("New Customers", new)
     col_r.metric("Returning Customers", returning)
-    
+
     # Slider for dynamic Pie Chart size
     pie_size_customer = st.slider(
         "Customer Pie Chart Size", min_value=4, max_value=12, value=6, step=1, key='customer_pie'
     )
-    
+
     fig, ax = plt.subplots(figsize=(pie_size_customer, pie_size_customer))
     ax.pie(
         [new, returning],
@@ -180,6 +181,7 @@ with customer_tab:
     ax.axis('equal')
     plt.tight_layout()
     st.pyplot(fig)
+
 
 with order_tab:
     st.subheader("🚚 Order Method Preference")
