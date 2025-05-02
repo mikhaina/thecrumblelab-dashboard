@@ -16,9 +16,29 @@ df.dropna(subset=['date'], inplace=True)
 
 # Sidebar Filters
 st.sidebar.header("Filter")
+
+# Date filter
 date_range = st.sidebar.date_input("Select Date Range", [df['date'].min(), df['date'].max()])
-product_filter = st.sidebar.multiselect("Filter by Product", df['product'].unique(), default=df['product'].unique())
-payment_filter = st.sidebar.multiselect("Filter by Mode of Payment", df['mode_of_payment'].unique(), default=df['mode_of_payment'].unique())
+
+# Product filter with 'Select All'
+all_products = df['product'].unique().tolist()
+product_filter = st.sidebar.multiselect(
+    "Filter by Product",
+    options=["Select All"] + all_products,
+    default=["Select All"]
+)
+if "Select All" in product_filter:
+    product_filter = all_products
+
+# Payment mode filter with 'Select All'
+all_payments = df['mode_of_payment'].unique().tolist()
+payment_filter = st.sidebar.multiselect(
+    "Filter by Mode of Payment",
+    options=["Select All"] + all_payments,
+    default=["Select All"]
+)
+if "Select All" in payment_filter:
+    payment_filter = all_payments
 
 # Apply Filters
 mask = (
