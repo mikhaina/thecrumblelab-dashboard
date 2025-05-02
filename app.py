@@ -164,7 +164,7 @@ with customer_tab:
     
     # Slider for dynamic Pie Chart size
     pie_size_customer = st.slider(
-        min_value=4, max_value=12, value=6, step=1, key='customer_pie'
+        "Pie Chart Slider", min_value=4, max_value=12, value=6, step=1, key='customer_pie'
     )
     
     fig, ax = plt.subplots(figsize=(pie_size_customer, pie_size_customer))
@@ -187,7 +187,7 @@ with order_tab:
     
     # Slider for dynamic Pie Chart size
     pie_size_order = st.slider(
-         min_value=4, max_value=12, value=6, step=1, key='order_pie'
+         "Pie Chart Slider", min_value=4, max_value=12, value=6, step=1, key='order_pie'
     )
     
     fig, ax = plt.subplots(figsize=(pie_size_order, pie_size_order))
