@@ -98,77 +98,43 @@ with summary_tab:
 
 with product_tab:
     st.subheader("📈 Revenue by Product")
-
-    # Chart Type Selection
     chart_type = st.selectbox("Choose chart type:", ["Bar Chart", "Pie Chart"])
     product_sales = filtered_df.groupby('product')['amount'].sum().sort_values(ascending=False)
 
     if chart_type == "Bar Chart":
         fig, ax = plt.subplots(figsize=(10, 6))
-        sns.barplot(
-            x=product_sales.values, 
-            y=product_sales.index, 
-            ax=ax, 
-            color=COLOR_TAN
-        )
-        ax.set_title("Total Revenue by Product", color=COLOR_BROWN, pad=15)
+        sns.barplot(x=product_sales.values, y=product_sales.index, ax=ax, color=COLOR_TAN)
+        ax.set_title("Total Revenue by Product", color=COLOR_BROWN)
         ax.set_xlabel("Revenue (₱)", color=COLOR_BROWN)
         ax.set_ylabel("Product", color=COLOR_BROWN)
         ax.tick_params(colors=COLOR_BROWN)
-        plt.tight_layout()
         st.pyplot(fig)
-
-    elif chart_type == "Pie Chart":
-        # Slider for dynamic Pie Chart Size
-        pie_size = st.slider("Pie Chart Size", min_value=4, max_value=12, value=6, step=1)
-
+    else:
         top5 = product_sales.head(5)
-        fig, ax = plt.subplots(figsize=(pie_size, pie_size))
-        ax.pie(
-            top5,
-            labels=top5.index,
-            autopct='%1.1f%%',
-            startangle=140,
-            colors=[COLOR_BROWN, COLOR_TAN, COLOR_GOLD, "#a9745f", "#c89f7f"],
-            wedgeprops={'edgecolor': 'white'}
-        )
-        ax.set_title("Revenue Share by Product", color=COLOR_BROWN, pad=20)
-        ax.axis('equal')
-        plt.tight_layout()
+        fig, ax = plt.subplots(figsize=(6, 6))
+        ax.pie(top5, labels=top5.index, autopct='%1.1f%%', startangle=140,
+               colors=[COLOR_BROWN, COLOR_TAN, COLOR_GOLD, "#a9745f", "#c89f7f"])
+        ax.set_title("Revenue Share by Product", color=COLOR_BROWN)
         st.pyplot(fig)
 
-    # Daily Sales Trend
     st.subheader("📅 Daily Sales Trend")
     daily_sales = filtered_df.groupby(filtered_df['date'].dt.date)['amount'].sum()
     fig, ax = plt.subplots(figsize=(10, 5))
     daily_sales.plot(marker='o', ax=ax, color=COLOR_BROWN)
-    ax.set_title("Daily Sales Revenue", color=COLOR_BROWN, pad=15)
+    ax.set_title("Daily Sales Revenue", color=COLOR_BROWN)
     ax.set_xlabel("Date", color=COLOR_BROWN)
     ax.set_ylabel("Revenue (₱)", color=COLOR_BROWN)
     ax.grid(True, color=COLOR_TAN)
     ax.tick_params(colors=COLOR_BROWN)
-    plt.tight_layout()
     st.pyplot(fig)
 
-    # All-Time Top 5 Products Pie Chart with slider
     st.subheader("🥧 All-Time Top 5 Products")
-    pie_size_all_time = st.slider("All-Time Pie Chart Size", min_value=4, max_value=12, value=6, step=1, key='alltime_pie')
-
     top5_all_time = df.groupby('product')['amount'].sum().sort_values(ascending=False).head(5)
-    fig, ax = plt.subplots(figsize=(pie_size_all_time, pie_size_all_time))
-    ax.pie(
-        top5_all_time,
-        labels=top5_all_time.index,
-        autopct='%1.1f%%',
-        startangle=140,
-        colors=[COLOR_BROWN, COLOR_TAN, COLOR_GOLD, "#a9745f", "#c89f7f"],
-        wedgeprops={'edgecolor': 'white'}
-    )
-    ax.set_title("All-Time Top 5 Products", color=COLOR_BROWN, pad=20)
-    ax.axis('equal')
-    plt.tight_layout()
+    fig, ax = plt.subplots(figsize=(6, 6))
+    ax.pie(top5_all_time, labels=top5_all_time.index, autopct='%1.1f%%', startangle=140,
+           colors=[COLOR_BROWN, COLOR_TAN, COLOR_GOLD, "#a9745f", "#c89f7f"])
+    ax.set_title("All-Time Top 5 Products", color=COLOR_BROWN)
     st.pyplot(fig)
-
 
 with customer_tab:
     st.subheader("👥 Top 5 Customers by Order Frequency")
@@ -191,22 +157,50 @@ with customer_tab:
     customer_orders = df.groupby('customer')['transaction_id'].nunique()
     new = customer_orders[customer_orders == 1].count()
     returning = customer_orders[customer_orders > 1].count()
+    
     col_n, col_r = st.columns(2)
     col_n.metric("New Customers", new)
     col_r.metric("Returning Customers", returning)
-
-    fig, ax = plt.subplots(figsize=(4, 4))
-    ax.pie([new, returning], labels=["New", "Returning"], autopct='%1.1f%%', startangle=90,
-           colors=[COLOR_TAN, COLOR_BROWN])
-    ax.set_title("New vs Returning Customers", color=COLOR_BROWN)
+    
+    # Slider for dynamic Pie Chart size
+    pie_size_customer = st.slider(
+        min_value=4, max_value=12, value=6, step=1, key='customer_pie'
+    )
+    
+    fig, ax = plt.subplots(figsize=(pie_size_customer, pie_size_customer))
+    ax.pie(
+        [new, returning],
+        labels=["New", "Returning"],
+        autopct='%1.1f%%',
+        startangle=90,
+        colors=[COLOR_TAN, COLOR_BROWN],
+        wedgeprops={'edgecolor': 'white'}
+    )
+    ax.set_title("New vs Returning Customers", color=COLOR_BROWN, pad=20)
+    ax.axis('equal')
+    plt.tight_layout()
     st.pyplot(fig)
 
 with order_tab:
     st.subheader("🚚 Order Method Preference")
     pickup_counts = df['pickup/delivery'].value_counts()
-    fig, ax = plt.subplots(figsize=(4, 4))
-    pickup_counts.plot.pie(autopct='%1.1f%%', labels=pickup_counts.index, ax=ax, startangle=90,
-                           colors=[COLOR_TAN, COLOR_BROWN])
+    
+    # Slider for dynamic Pie Chart size
+    pie_size_order = st.slider(
+         min_value=4, max_value=12, value=6, step=1, key='order_pie'
+    )
+    
+    fig, ax = plt.subplots(figsize=(pie_size_order, pie_size_order))
+    pickup_counts.plot.pie(
+        autopct='%1.1f%%',
+        labels=pickup_counts.index,
+        ax=ax,
+        startangle=90,
+        colors=[COLOR_TAN, COLOR_BROWN],
+        wedgeprops={'edgecolor': 'white'}
+    )
     ax.set_ylabel("")
-    ax.set_title("Pickup vs Delivery Share", color=COLOR_BROWN)
+    ax.set_title("Pickup vs Delivery Share", color=COLOR_BROWN, pad=20)
+    ax.axis('equal')
+    plt.tight_layout()
     st.pyplot(fig)
