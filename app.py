@@ -9,6 +9,36 @@ COLOR_TAN = "#c19a6b"
 COLOR_GOLD = "#8b5a2b"
 COLOR_CREAM = "#f3e9dc"
 
+# Global Style for Dashboard
+st.markdown("""
+    <style>
+        body {
+            background-color: #f3e9dc;
+        }
+        h1, h2, h3, .stMetric, .css-qri22k, .css-1v0mbdj {
+            color: #402217 !important;
+        }
+        section[data-testid="stSidebar"] {
+            background-color: #f3e9dc;
+        }
+        .stMetric {
+            background-color: #f3e9dc;
+            border: 1px solid #c19a6b;
+            border-radius: 10px;
+            padding: 10px;
+        }
+        .stTabs [role="tab"] {
+            background-color: #f3e9dc;
+            color: #402217;
+            font-weight: bold;
+        }
+        .stTabs [aria-selected="true"] {
+            background-color: #c19a6b;
+            color: white;
+        }
+    </style>
+""", unsafe_allow_html=True)
+
 # Page Setup
 st.set_page_config(page_title="Crumble Lab Sales Dashboard", layout="wide")
 st.markdown("<h1 style='text-align: center;'>🍪 The Crumble Lab Sales Analytics Dashboard</h1>", unsafe_allow_html=True)
