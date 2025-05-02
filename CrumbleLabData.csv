@@ -1,0 +1,84 @@
+Line Item ID,Transaction ID,Product,Quantity,Price,Amount,Date,Customer,Status,Mode of Payment,Expected Delivery Date,Pickup/Delivery,Location
+LI-000001,TXN-000001,S'more Cookie - Regular (50g),4,30,120,"Sunday, 23 February 2025",Tiu Family,Paid,Cash,"Sunday, 23 February 2025",Pick-Up (Home),Home
+LI-000002,TXN-000002,S'more Cookie - Regular (50g),8,30,240,"Monday, 24 February 2025",Jea Jalandoni,Paid,Cash,"Monday, 24 February 2025",Deliver,Silliman University
+LI-000003,TXN-000003,S'more Cookie - Regular (50g),4,30,120,"Monday, 24 February 2025",Tiu Family,Paid,Cash,"Monday, 24 February 2025",Pick-Up (Home),Home
+LI-000004,TXN-000004,S'more Cookie - Regular (50g),6,30,180,"Monday, February 24, 2025", Euclid Uy,Paid,Cash,"Monday, 24 February 2025",Deliver,Customer
+LI-000005,TXN-000005,S'more Cookie - Regular (50g),10,30,300,"Sunday, March 02, 2025", Tiu Family,Paid,Cash,"Sunday, 2 March 2025",Pick-Up (Home),Home
+LI-000006,TXN-000006,S'more Cookie - Regular (50g),1,30,30,"Monday, March 03, 2025", Jazel Equia,Paid,Cash,"Monday, 3 March 2025",Deliver,"Miller Solutions, Inc."
+LI-000007,TXN-000007,S'more Cookie - Regular (50g),5,30,150,"Tuesday, March 04, 2025", Ate Joy,Paid,Cash,"Tuesday, 4 March 2025",Deliver,"Miller Solutions, Inc."
+LI-000008,TXN-000008,S'more Cookie - Regular (50g),4,30,120,"Tuesday, March 04, 2025", Ate Rosalyn,Paid,Cash,"Tuesday, 4 March 2025",Deliver,"Miller Solutions, Inc."
+LI-000009,TXN-000009,S'more Cookie - Regular (50g),2,30,60,"Tuesday, March 04, 2025", Jaz and Gail,Paid,Cash,"Tuesday, 4 March 2025",Deliver,"Miller Solutions, Inc."
+LI-000010,TXN-000010,S'more Cookie - Regular (50g),5,30,150,"Tuesday, March 04, 2025",Ate Christine Angel Grace Sabanal,Paid,Cash,"Tuesday, 4 March 2025",Deliver,"Miller Solutions, Inc."
+LI-000011,TXN-000011,S'more Cookie - Regular (50g),3,30,90,"Tuesday, March 04, 2025",Kuya Albert Cruz,Paid,Cash,"Tuesday, 4 March 2025",Deliver,"Miller Solutions, Inc."
+LI-000012,TXN-000012,S'more Cookie - Regular (50g),2,30,60,"Tuesday, March 04, 2025",Ate Joanne,Paid,Cash,"Tuesday, 4 March 2025",Deliver,"Miller Solutions, Inc."
+LI-000013,TXN-000013,S'more Cookie - Regular (50g),3,30,90,"Wednesday, March 05, 2025",Ate Joy,Paid,Cash,"Wednesday, 5 March 2025",Deliver,"Miller Solutions, Inc."
+LI-000014,TXN-000014,S'more Cookie - Regular (50g),2,30,60,"Wednesday, March 05, 2025",Ate Fie Angela Imboy,Paid,Cash,"Wednesday, 5 March 2025",Deliver,"Miller Solutions, Inc."
+LI-000015,TXN-000015,S'more Cookie - Regular (50g),1,30,30,"Wednesday, March 05, 2025",Ate Sheen Balatero,Paid,Cash,"Wednesday, 5 March 2025",Deliver,"Miller Solutions, Inc."
+LI-000016,TXN-000016,S'more Cookie - Regular (50g),9,30,270,"Wednesday, March 05, 2025",Tiu Family,Paid,Cash,"Wednesday, 5 March 2025",Pick-Up (Home),Home
+LI-000017,TXN-000017,S'more Cookie - Regular (50g),12,30,360,"Thursday, March 06, 2025",Ate Joy,Paid,Cash,"Thursday, 6 March 2025",Deliver,"Miller Solutions, Inc."
+LI-000018,TXN-000018,S'more Cookie - Regular (50g),10,30,300,"Sunday, March 09, 2025",Tiu Family,Paid,Cash,"Sunday, 9 March 2025",Pick-Up (Home),Home
+LI-000019,TXN-000019,S'more Cookie - Regular (50g),5,30,150,"Monday, March 10, 2025",Kuya Seth Cornelio,Paid,Cash,"Monday, 10 March 2025",Deliver,"Miller Solutions, Inc."
+LI-000020,TXN-000020,S'more Cookie - Regular (50g),10,30,300,"Monday, March 10, 2025",Jazel Equia,Paid,Cash,"Monday, 10 March 2025",Deliver,"Miller Solutions, Inc."
+LI-000021,TXN-000021,S'more Cookie - Regular (50g),3,30,90,"Tuesday, March 11, 2025",Jea Jalandoni,Paid,Cash,"Tuesday, 11 March 2025",Deliver,Silliman University
+LI-000022,TXN-000021,Box of 12 - S'more [Regular],1,330,330,"Tuesday, March 11, 2025",Jea Jalandoni,Paid,Cash,"Tuesday, 11 March 2025",Deliver,Silliman University
+LI-000023,TXN-000022,S'more Cookie - Chunky (110g),1,60,60,"Tuesday, 11 March 2025",Miguel Alexis,Paid,Cash,"Tuesday, 11 March 2025",Deliver,Silliman University
+LI-000024,TXN-000023,S'more Cookie - Chunky (110g),12,60,720,"Tuesday, 11 March 2025",Tiu Family,Paid,Cash,"Tuesday, 11 March 2025",Pick-Up (Home),Home
+LI-000025,TXN-000024,S'more Cookie - Regular (50g),5,30,150,"Wednesday, 12 March 2025",Lim Family,Paid,Cash,"Wednesday, 12 March 2025",Deliver,Customer
+LI-000026,TXN-000025,Box of 12 - S'more [Regular],1,330,330,"Saturday, 15 March 2025",Carlos John Diputado,Paid,Cash,"Saturday, 15 March 2025",Deliver,Customer
+LI-000027,TXN-000025,S'more Cookie - Regular (50g),1,30,30,"Saturday, 15 March 2025",Carlos John Diputado,Paid,Cash,"Saturday, 15 March 2025",Deliver,Customer
+LI-000028,TXN-000026,S'more Cookie - Regular (50g),3,30,90,"Saturday, 15 March 2025",Miguel Partosa,Paid,Cash,"Saturday, 15 March 2025",Deliver,Silliman University
+LI-000029,TXN-000027,Box of 12 - S'more [Regular],1,330,330,"Saturday, 15 March 2025",Jhan Kyle Canlas,Paid,Cash,"Saturday, 15 March 2025",Deliver,Silliman University
+LI-000030,TXN-000028,Box of 6 - S'more [Regular],1,170,170,"Saturday, 15 March 2025",Jea Jalandoni,Paid,Cash,"Saturday, 15 March 2025",Deliver,Silliman University
+LI-000031,TXN-000028,Box of 6 - S'more [Regular],1,170,170,"Saturday, 15 March 2025",Jea Jalandoni,Paid,Cash,"Saturday, 15 March 2025",Deliver,Silliman University
+LI-000032,TXN-000028,S'more Cookie - Regular (50g),2,30,60,"Saturday, 15 March 2025",Jea Jalandoni,Paid,Cash,"Saturday, 15 March 2025",Deliver,Silliman University
+LI-000033,TXN-000029,S'more Cookie - Chunky (110g),4,60,240,"Sunday, 16 March 2025",Shaneikha Ho,Paid,Cash,"Sunday, 16 March 2025",Deliver,Car Creation
+LI-000034,TXN-000030,Box of 12 - S'more [Regular],1,330,330,"Sunday, 16 March 2025",Ralph Caracol,Paid,Cash,"Sunday, 16 March 2025",Deliver,Customer
+LI-000035,TXN-000031,Box of 12 - S'more [Regular],1,330,330,"Sunday, 16 March 2025",Darrell Vincoy,Paid,Cash,"Sunday, 16 March 2025",Deliver,Customer
+LI-000036,TXN-000032,Box of 12 - S'more [Chunky],1,680,680,"Sunday, 16 March 2025",Mikaine Liana Arada,Paid,Cash,"Monday, 17 March 2025",Deliver,Holy Cross High School
+LI-000037,TXN-000033,Box of 12 - S'more [Regular],1,330,330,"Sunday, 16 March 2025",Jea Jalandoni,Paid,Cash,"Monday, 17 March 2025",Pick-Up (Home),Home
+LI-000038,TXN-000034,Box of 12 - S'more [Regular],1,330,330,"Sunday, 16 March 2025",Margarita Doria,Paid,Cash,"Monday, 17 March 2025",Pick-Up (Home),Home
+LI-000039,TXN-000035,Box of 6 - S'more [Regular],5,170,850,"Monday, 17 March 2025",Ralph Caracol,Paid,Cash,"Wednesday, 19 March 2025",Deliver,Holy Cross High School
+LI-000040,TXN-000036,Box of 6 - S'more [Regular],1,170,170,"Monday, 17 March 2025",Jea Jalandoni,Paid,Cash,"Tuesday, 18 March 2025",Deliver,Silliman University
+LI-000041,TXN-000037,Box of 6 - S'more [Regular],1,170,170,"Monday, 17 March 2025",Chinju,Paid,Cash,"Tuesday, 18 March 2025",Deliver,Silliman University
+LI-000042,TXN-000038,S'more Cookie - Regular (50g),2,30,60,"Monday, 17 March 2025",Miguel Partosa,Paid,Cash,"Wednesday, 19 March 2025",Deliver,Silliman University
+LI-000043,TXN-000039,Box of 6 - Classic Choco Chip [Regular],1,170,170,"Wednesday, 19 March 2025",Ilynn Divinigracia,Paid,Cash,"Wednesday, 19 March 2025",Deliver,"175 EJ Blanco Street, Learning Ladder Dumaguete"
+LI-000044,TXN-000040,Box of 6 - S'more [Regular],1,170,170,"Friday, 21 March 2025",Jea Jalandoni,Paid,Cash,"Saturday, 22 March 2025",Pick-Up (Home),Home
+LI-000045,TXN-000041,Box of 6 - Classic Choco Chip [Regular],1,170,170,"Sunday, 23 March 2025",Karina Tiu,Paid,Cash,"Monday, 24 March 2025",Pick-Up (Home),Home
+LI-000046,TXN-000042,Box of 12 - Classic Choco Chip [Regular],1,330,330,"Sunday, 23 March 2025",Risa Barcelona,Paid,Cash,"Monday, 24 March 2025",Deliver,Chia Eatery
+LI-000047,TXN-000043,Box of 12 - S'more [Regular],1,330,330,"Wednesday, 26 March 2025",Jea Jalandoni,Paid,Cash,"Thursday, 27 March 2025",Deliver,Silliman University
+LI-000048,TXN-000044,Box of 12 - S'more [Regular],1,330,330,"Wednesday, 26 March 2025",Alice Coo,Paid,Cash,"Thursday, 27 March 2025",Pick-Up (Home),Home
+LI-000049,TXN-000044,Box of 12 - Classic Choco Chip [Regular],1,330,330,"Wednesday, 26 March 2025",Alice Coo,Paid,Cash,"Thursday, 27 March 2025",Pick-Up (Home),Home
+LI-000050,TXN-000045,Box of 12 - S'more [Regular],1,330,330,"Wednesday, 26 March 2025",Tiu Family,Paid,Cash,"Thursday, 27 March 2025",Pick-Up (Home),Home
+LI-000051,TXN-000046,Box of 12 - Classic Choco Chip [Regular],1,330,330,"Thursday, 27 March 2025",Jhan Kyle Canlas,Paid,Cash,"Friday, 28 March 2025",Pick-Up (Home),Home
+LI-000052,TXN-000047,S'more Cookie - Chunky (110g),3,60,180,"Friday, 28 March 2025",Miguel Partosa,Paid,Cash,"Monday, 31 March 2025",Pick-Up (Home),Home
+LI-000053,TXN-000048,Box of 12 - Assorted,1,330,330,"Saturday, 29 March 2025",Leo Dionaldo,Paid,Cash,"Wednesday, 2 April 2025",Deliver,Silliman University
+LI-000054,TXN-000049,Box of 6 - S'more [Regular],1,170,170,"Sunday, 30 March 2025",Tiu Family,Paid,Cash,"Sunday, 30 March 2025",Pick-Up (Home),Home
+LI-000055,TXN-000049,Box of 6 - Classic Choco Chip [Regular],1,170,170,"Sunday, 30 March 2025",Tiu Family,Paid,Cash,"Sunday, 30 March 2025",Pick-Up (Home),Home
+LI-000056,TXN-000049,Box of 6 - Biscoff Crush [Regular],1,200,200,"Sunday, 30 March 2025",Tiu Family,Paid,Cash,"Sunday, 30 March 2025",Pick-Up (Home),Home
+LI-000057,TXN-000050,Box of 6 - Biscoff Crush [Regular],1,200,200,"Sunday, 30 March 2025",Fiona Cunanan,Paid,Cash,"Monday, 31 March 2025",Deliver,Silliman University
+LI-000058,TXN-000051,Box of 6 - S'more [Regular],1,170,170,"Monday, 31 March 2025",Sheikha Encabo,Paid,Cash,"Wednesday, 2 April 2025",Deliver,Silliman University
+LI-000059,TXN-000052,Box of 6 - S'more [Regular],1,170,170,"Monday, 31 March 2025",Jea Jalandoni,Paid,Cash,"Wednesday, 2 April 2025",Deliver,Silliman University
+LI-000060,TXN-000052,Classic Choco Chip Cookie - Regular (50g),2,30,60,"Monday, 31 March 2025",Jea Jalandoni,Paid,Cash,"Wednesday, 2 April 2025",Deliver,Silliman University
+LI-000061,TXN-000052,Biscoff Crush Cookie - Regular (50g),2,35,70,"Monday, 31 March 2025",Jea Jalandoni,Paid,Cash,"Wednesday, 2 April 2025",Deliver,Silliman University
+LI-000062,TXN-000053,S'more Cookie - Regular (50g),1,30,30,"Tuesday, 1 April 2025",Miguel Partosa,Paid,Cash,"Wednesday, 2 April 2025",Deliver,Silliman University
+LI-000063,TXN-000054,Box of 12 - S'more [Regular],1,330,330,"Tuesday, 1 April 2025",Tiu Family,Paid,Cash,"Tuesday, 1 April 2025",Pick-Up (Home),Home
+LI-000064,TXN-000055,Box of 12 - Classic Choco Chip [Regular],1,330,330,"Tuesday, 1 April 2025",Jhan Kyle Canlas,Paid,Cash,"Wednesday, 2 April 2025",Deliver,Silliman University
+LI-000065,TXN-000055,Box of 6 - Classic Choco Chip [Regular],1,170,170,"Tuesday, 1 April 2025",Jhan Kyle Canlas,Paid,Cash,"Wednesday, 2 April 2025",Deliver,Silliman University
+LI-000066,TXN-000056,Box of 6 - Classic Choco Chip [Regular],1,170,170,"Sunday, 6 April 2025",Darrell Vincoy,Paid,Cash,"Monday, 7 April 2025",Pick-Up (Home),Home
+LI-000067,TXN-000056,Box of 12 - S'more [Regular],1,330,330,"Sunday, 6 April 2025",Darrell Vincoy,Paid,Cash,"Monday, 7 April 2025",Pick-Up (Home),Home
+LI-000068,TXN-000057,Box of 12 - S'more [Regular],1,330,330,"Sunday, 6 April 2025",Jea Jalandoni,Paid,Cash,"Tuesday, 8 April 2025",Deliver,Silliman University
+LI-000069,TXN-000058,Box of 6 - Assorted,5,180,900,"Sunday, 6 April 2025",Tita Gisella,Paid,Cash,"Wednesday, 9 April 2025",Deliver,Gwama
+LI-000070,TXN-000059,Box of 12 - S'more [Regular],1,330,330,"Sunday, 6 April 2025",Karina Tiu,Paid,Cash,"Wednesday, 9 April 2025",Deliver,For Marvin Tiu
+LI-000071,TXN-000059,Box of 12 - Classic Choco Chip [Regular],1,330,330,"Sunday, 6 April 2025",Karina Tiu,Paid,Cash,"Wednesday, 9 April 2025",Deliver,For Marvin Tiu
+LI-000072,TXN-000060,Biscoff Crush Cookie - Regular (50g),5,35,175,"Thursday, 10 April 2025",Karina Tiu,Paid,Cash,"Thursday, 10 April 2025",Deliver,For Dr. Casamayor
+LI-000073,TXN-000060,Box of 12 - Assorted,1,330,330,"Thursday, 10 April 2025",Karina Tiu,Paid,Cash,"Thursday, 10 April 2025",Deliver,For Dr. Casamayor
+LI-000074,TXN-000061,Box of 12 - Assorted,1,330,330,"Thursday, 10 April 2025",Karina Tiu,Paid,Cash,"Thursday, 10 April 2025",Deliver,For Melissa and Lumen
+LI-000075,TXN-000062,Box of 6 - S'more [Regular],1,170,170,"Thursday, 10 April 2025",Karina Tiu,Paid,Cash,"Thursday, 10 April 2025",Pick-Up (Home),Home
+LI-000076,TXN-000063,Box of 6 - Classic Choco Chip [Regular],3,170,510,"Sunday, 13 April 2025",Vicky Tiu,Paid,Cash,"Monday, 14 April 2025",Pick-Up (Home),Home
+LI-000077,TXN-000064,Box of 6 - Assorted,3,180,540,"Tuesday, 15 April 2025",Joseph Lim,Paid,Cash,"Wednesday, 16 April 2025",Pick-Up (Home),Home
+LI-000078,TXN-000065,Box of 6 - S'more [Regular],1,170,170,"Tuesday, 15 April 2025",Jea Jalandoni,Paid,Cash,"Wednesday, 16 April 2025",Deliver,Silliman University
+LI-000079,TXN-000065,Biscoff Crush Cookie - Regular (50g),4,35,140,"Tuesday, 15 April 2025",Jea Jalandoni,Paid,Cash,"Wednesday, 16 April 2025",Deliver,Silliman University
+LI-000080,TXN-000066,Box of 6 - Assorted,1,180,180,"Wednesday, 30 April 2025",Gail Quipit,Paid,Cash,"Wednesday, 30 April 2025",Deliver,"Miller Solutions, Inc."
+LI-000081,TXN-000066,S'more Cookie - Chunky (110g),1,60,60,"Wednesday, 30 April 2025",Gail Quipit,Paid,Cash,"Wednesday, 30 April 2025",Deliver,"Miller Solutions, Inc."
+LI-000082,TXN-000067,Box of 12 - S'more [Regular],3,330,990,"Monday, 28 April 2025",Jea Jalandoni,Paid,Cash,"Friday, 2 May 2025",Deliver,Silliman University
+LI-000083,TXN-000068,Box of 12 - S'more [Regular],1,330,330,"Thursday, 1 May 2025",Karina Tiu,Paid,Cash,"Thursday, 1 May 2025",Pick-Up (Home),
