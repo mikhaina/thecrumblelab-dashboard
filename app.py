@@ -161,7 +161,7 @@ with customer_tab:
     col_n.metric("New Customers", new)
     col_r.metric("Returning Customers", returning)
 
-    pie_size_customer = st.slider("Customer Pie Chart Size", 2, 12, 6, 1, key='customer_pie')
+    pie_size_customer = st.slider("Customer Pie Chart Size", 2, 12, 4, 1, key='customer_pie')
     fig, ax = plt.subplots(figsize=(pie_size_customer, pie_size_customer))
     ax.pie([new, returning], labels=["New", "Returning"], autopct='%1.1f%%', startangle=90,
            colors=[COLOR_TAN, COLOR_BROWN], wedgeprops={'edgecolor': 'white'})
