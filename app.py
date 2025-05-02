@@ -30,18 +30,18 @@ mask = (
 filtered_df = df[mask]
 
 # Tabs
-summary_tab, product_tab, customer_tab, order_tab = st.tabs(["\ud83d\udcca Summary", "\ud83d\udcc8 Product Insights", "\ud83d\udc65 Customer Insights", "\ud83d\ude9a Order Preferences"])
+summary_tab, product_tab, customer_tab, order_tab = st.tabs(["Summary", "Product Insights", "Customer Insights", "Order Preferences"])
 
 with summary_tab:
-    st.subheader("\ud83d\udcca Summary")
+    st.subheader("📊 Summary")
     col1, col2, col3, col4 = st.columns(4)
-    col1.metric("Total Revenue", f"\u20b1{filtered_df['amount'].sum():,.2f}")
-    col2.metric("Avg. Order Value", f"\u20b1{filtered_df.groupby('transaction_id')['amount'].sum().mean():,.2f}")
+    col1.metric("Total Revenue", f"₱{filtered_df['amount'].sum():,.2f}")
+    col2.metric("Avg. Order Value", f"₱{filtered_df.groupby('transaction_id')['amount'].sum().mean():,.2f}")
     col3.metric("Total Orders", filtered_df['transaction_id'].nunique())
     col4.metric("Top Product", filtered_df.groupby('product')['amount'].sum().idxmax())
 
 with product_tab:
-    st.subheader("\ud83d\udcc8 Revenue by Product")
+    st.subheader("📈 Revenue by Product")
     chart_type = st.selectbox("Choose chart type:", ["Bar Chart", "Pie Chart"])
     product_sales = filtered_df.groupby('product')['amount'].sum().sort_values(ascending=False)
 
@@ -49,7 +49,7 @@ with product_tab:
         fig, ax = plt.subplots(figsize=(10, 6))
         sns.barplot(x=product_sales.values, y=product_sales.index, ax=ax)
         ax.set_title("Total Revenue by Product")
-        ax.set_xlabel("Revenue (\u20b1)")
+        ax.set_xlabel("Revenue (₱)")
         ax.set_ylabel("Product")
         st.pyplot(fig)
     else:
@@ -59,17 +59,17 @@ with product_tab:
         ax.set_title("Revenue Share by Product")
         st.pyplot(fig)
 
-    st.subheader("\ud83d\udcc5 Daily Sales Trend")
+    st.subheader("📅 Daily Sales Trend")
     daily_sales = filtered_df.groupby(filtered_df['date'].dt.date)['amount'].sum()
     fig, ax = plt.subplots(figsize=(10, 5))
     daily_sales.plot(marker='o', ax=ax)
     ax.set_title("Daily Sales Revenue")
     ax.set_xlabel("Date")
-    ax.set_ylabel("Revenue (\u20b1)")
+    ax.set_ylabel("Revenue (₱)")
     ax.grid(True)
     st.pyplot(fig)
 
-    st.subheader("\ud83e\udd67 All-Time Top 5 Products")
+    st.subheader("🥧 All-Time Top 5 Products")
     top5_all_time = df.groupby('product')['amount'].sum().sort_values(ascending=False).head(5)
     fig, ax = plt.subplots(figsize=(6, 6))
     ax.pie(top5_all_time, labels=top5_all_time.index, autopct='%1.1f%%', startangle=140)
@@ -77,7 +77,7 @@ with product_tab:
     st.pyplot(fig)
 
 with customer_tab:
-    st.subheader("\ud83d\udc65 Top 5 Customers by Order Frequency")
+    st.subheader("👥 Top 5 Customers by Order Frequency")
     top5_customers = df.groupby('customer')['transaction_id'].nunique().sort_values(ascending=False).head(5)
     st.dataframe(top5_customers.reset_index().rename(columns={'transaction_id': 'Order Count'}))
 
@@ -88,7 +88,7 @@ with customer_tab:
     ax.invert_yaxis()
     st.pyplot(fig)
 
-    st.subheader("\ud83d\udd01 New vs Returning Customers")
+    st.subheader("🔁 New vs Returning Customers")
     customer_orders = df.groupby('customer')['transaction_id'].nunique()
     new = customer_orders[customer_orders == 1].count()
     returning = customer_orders[customer_orders > 1].count()
@@ -102,7 +102,7 @@ with customer_tab:
     st.pyplot(fig)
 
 with order_tab:
-    st.subheader("\ud83d\ude9a Order Method Preference")
+    st.subheader("🚚 Order Method Preference")
     pickup_counts = df['pickup/delivery'].value_counts()
     fig, ax = plt.subplots()
     pickup_counts.plot.pie(autopct='%1.1f%%', labels=pickup_counts.index, ax=ax, startangle=90)
