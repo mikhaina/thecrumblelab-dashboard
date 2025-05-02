@@ -3,6 +3,11 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 
+# Crumble Lab Brand Colors
+BRAND_BROWN = "#5c3b25"
+BRAND_TAN = "#d1a77a"
+BRAND_CREAM = "#f3e9dc"
+
 # Page Setup
 st.set_page_config(page_title="Crumble Lab Sales Dashboard", layout="wide")
 st.markdown("<h1 style='text-align: center;'>🍪 The Crumble Lab: Sales Analytics Dashboard</h1>", unsafe_allow_html=True)
@@ -67,50 +72,44 @@ with product_tab:
 
     if chart_type == "Bar Chart":
         fig, ax = plt.subplots(figsize=(10, 6))
-        sns.barplot(x=product_sales.values, y=product_sales.index, ax=ax)
-        ax.set_title("Total Revenue by Product")
-        ax.set_xlabel("Revenue (₱)")
-        ax.set_ylabel("Product")
+        sns.barplot(x=product_sales.values, y=product_sales.index, ax=ax, color=BRAND_TAN)
+        ax.set_title("Total Revenue by Product", color=BRAND_BROWN)
+        ax.set_xlabel("Revenue (₱)", color=BRAND_BROWN)
+        ax.set_ylabel("Product", color=BRAND_BROWN)
         st.pyplot(fig)
     else:
         top5 = product_sales.head(5)
         fig, ax = plt.subplots(figsize=(6, 6))
         ax.pie(top5, labels=top5.index, autopct='%1.1f%%', startangle=140)
-        ax.set_title("Revenue Share by Product")
+        ax.set_title("Revenue Share by Product", color=BRAND_BROWN)
         st.pyplot(fig)
 
     st.subheader("📅 Daily Sales Trend")
     daily_sales = filtered_df.groupby(filtered_df['date'].dt.date)['amount'].sum()
     fig, ax = plt.subplots(figsize=(10, 5))
-    daily_sales.plot(marker='o', ax=ax)
-    ax.set_title("Daily Sales Revenue")
-    ax.set_xlabel("Date")
-    ax.set_ylabel("Revenue (₱)")
-    ax.grid(True)
+    daily_sales.plot(marker='o', ax=ax, color=BRAND_BROWN)
+    ax.set_title("Daily Sales Revenue", color=BRAND_BROWN)
+    ax.set_xlabel("Date", color=BRAND_BROWN)
+    ax.set_ylabel("Revenue (₱)", color=BRAND_BROWN)
+    ax.grid(True, color=BRAND_TAN)
     st.pyplot(fig)
 
     st.subheader("🥧 All-Time Top 5 Products")
     top5_all_time = df.groupby('product')['amount'].sum().sort_values(ascending=False).head(5)
     fig, ax = plt.subplots(figsize=(6, 6))
     ax.pie(top5_all_time, labels=top5_all_time.index, autopct='%1.1f%%', startangle=140)
-    ax.set_title("All-Time Top 5 Products")
+    ax.set_title("All-Time Top 5 Products", color=BRAND_BROWN)
     st.pyplot(fig)
 
 with customer_tab:
     st.subheader("👥 Top 5 Customers by Order Frequency")
-
     top5_customers = df.groupby('customer')['transaction_id'].nunique().sort_values(ascending=False).head(5)
-    top5_customers_df = top5_customers.reset_index().rename(columns={'transaction_id': 'Order Count'})
-    
-    view_option = st.selectbox("View customer table?", ["Hide", "Show"])
-    
-    if view_option == "Show":
-        st.dataframe(top5_customers_df)
+    st.dataframe(top5_customers.reset_index().rename(columns={'transaction_id': 'Order Count'}))
 
     fig, ax = plt.subplots(figsize=(8, 4))
     top5_customers.plot(kind='barh', ax=ax, color='lightcoral')
-    ax.set_title("Top 5 Customers by Number of Orders")
-    ax.set_xlabel("Number of Orders")
+    ax.set_title("Top 5 Customers by Number of Orders", color=BRAND_BROWN)
+    ax.set_xlabel("Number of Orders", color=BRAND_BROWN)
     ax.invert_yaxis()
     st.pyplot(fig)
 
@@ -124,7 +123,7 @@ with customer_tab:
 
     fig, ax = plt.subplots()
     ax.pie([new, returning], labels=["New", "Returning"], autopct='%1.1f%%', startangle=90)
-    ax.set_title("New vs Returning Customers")
+    ax.set_title("New vs Returning Customers", color=BRAND_BROWN)
     st.pyplot(fig)
 
 with order_tab:
@@ -133,5 +132,5 @@ with order_tab:
     fig, ax = plt.subplots()
     pickup_counts.plot.pie(autopct='%1.1f%%', labels=pickup_counts.index, ax=ax, startangle=90)
     ax.set_ylabel("")
-    ax.set_title("Pickup vs Delivery Share")
+    ax.set_title("Pickup vs Delivery Share", color=BRAND_BROWN)
     st.pyplot(fig)
