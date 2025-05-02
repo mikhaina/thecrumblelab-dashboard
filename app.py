@@ -111,10 +111,15 @@ with product_tab:
         st.pyplot(fig)
     else:
         top5 = product_sales.head(5)
-        fig, ax = plt.subplots(figsize=(6, 6))
+        pie_size = st.slider("Adjust Pie Chart Size", min_value=4, max_value=12, value=6, step=1)
+
+        fig, ax = plt.subplots(figsize=(pie_size, pie_size))
         ax.pie(top5, labels=top5.index, autopct='%1.1f%%', startangle=140,
-               colors=[COLOR_BROWN, COLOR_TAN, COLOR_GOLD, "#a9745f", "#c89f7f"])
-        ax.set_title("Revenue Share by Product", color=COLOR_BROWN)
+               colors=[COLOR_BROWN, COLOR_TAN, COLOR_GOLD, "#a9745f", "#c89f7f"],
+               wedgeprops={'edgecolor': 'white'})
+        ax.set_title("Revenue Share by Product", color=COLOR_BROWN, pad=20)
+        ax.axis('equal')
+        plt.tight_layout()
         st.pyplot(fig)
 
     st.subheader("📅 Daily Sales Trend")
