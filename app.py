@@ -161,7 +161,7 @@ with customer_tab:
     col_n.metric("New Customers", new)
     col_r.metric("Returning Customers", returning)
 
-    fig, ax = plt.subplots()
+    fig, ax = plt.subplots(figsize=(4, 4))
     ax.pie([new, returning], labels=["New", "Returning"], autopct='%1.1f%%', startangle=90,
            colors=[COLOR_TAN, COLOR_BROWN])
     ax.set_title("New vs Returning Customers", color=COLOR_BROWN)
