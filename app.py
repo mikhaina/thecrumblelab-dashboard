@@ -16,8 +16,6 @@ with col1:
 with col2:
     st.markdown("<h1 style='padding-top: 20px;'>The Crumble Lab Sales Dashboard</h1>", unsafe_allow_html=True)
 
-st.markdown("<h1 style='text-align: center;'>🍪 The Crumble Lab: Sales Analytics Dashboard</h1>", unsafe_allow_html=True)
-
 # Load and Clean Data
 df = pd.read_csv("CrumbleLabData.csv")
 df.columns = df.columns.str.strip().str.lower().str.replace(" ", "_")
