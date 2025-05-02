@@ -38,13 +38,25 @@ col4.metric("Top Product", filtered_df.groupby('product')['amount'].sum().idxmax
 
 # Revenue by Product
 st.subheader("📈 Revenue by Product")
-product_sales = filtered_df.groupby('product')['amount'].sum().sort_values(ascending=True)
-fig1, ax1 = plt.subplots(figsize=(10,6))
-sns.barplot(x=product_sales.values, y=product_sales.index, ax=ax1)
-ax1.set_title("Total Revenue by Product")
-ax1.set_xlabel("Revenue (₱)")
-ax1.set_ylabel("Product")
-st.pyplot(fig1)
+
+chart_type = st.selectbox("Choose chart type:", ["Bar Chart", "Pie Chart"])
+
+product_sales = filtered_df.groupby('product')['amount'].sum().sort_values(ascending=False)
+
+if chart_type == "Bar Chart":
+    fig1, ax1 = plt.subplots(figsize=(10,6))
+    sns.barplot(x=product_sales.values, y=product_sales.index, ax=ax1)
+    ax1.set_title("Total Revenue by Product")
+    ax1.set_xlabel("Revenue (₱)")
+    ax1.set_ylabel("Product")
+    st.pyplot(fig1)
+
+elif chart_type == "Pie Chart":
+    top5 = product_sales.head(5)
+    fig2, ax2 = plt.subplots(figsize=(6,6))
+    ax2.pie(top5, labels=top5.index, autopct='%1.1f%%', startangle=140)
+    ax2.set_title("Top 5 Products - Revenue Share")
+    st.pyplot(fig2)
 
 # Daily Sales Trend
 st.subheader("📅 Daily Sales Trend")
