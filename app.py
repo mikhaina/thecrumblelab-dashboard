@@ -132,8 +132,8 @@ with product_tab:
     top5_all_time = df.groupby('product')['amount'].sum().sort_values(ascending=False).head(5)
     fig, ax = plt.subplots(figsize=(6, 6))
     ax.pie(
-        top5,
-        labels=top5.index,
+        top5_all_time,
+        labels=top5_all_time.index,
         autopct='%1.1f%%',
         startangle=140,
         colors=[COLOR_BROWN, COLOR_TAN, COLOR_GOLD, "#a9745f", "#c89f7f"],
