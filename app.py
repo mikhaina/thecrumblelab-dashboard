@@ -17,7 +17,6 @@ df.dropna(subset=['date'], inplace=True)
 st.sidebar.header("Filter")
 date_range = st.sidebar.date_input("Select Date Range", [df['date'].min(), df['date'].max()])
 product_filter = st.sidebar.multiselect("Filter by Product", df['product'].unique(), default=df['product'].unique())
-payment_filter = st.sidebar.multiselect("Filter by Mode of Payment", df['mode_of_payment'].unique(), default=df['mode_of_payment'].unique())
 
 # Apply filters
 mask = (
@@ -86,13 +85,7 @@ top5_customers = df.groupby('customer')['transaction_id'].nunique().sort_values(
 # Show as table
 st.dataframe(top5_customers.reset_index().rename(columns={'transaction_id': 'Order Count'}))
 
-# Show as bar chart
-fig_freq, ax_freq = plt.subplots(figsize=(8, 4))
-top5_customers.plot(kind='barh', ax=ax_freq, color='lightcoral')
-ax_freq.set_title("Top 5 Customers by Number of Orders")
-ax_freq.set_xlabel("Number of Orders")
-ax_freq.invert_yaxis()
-st.pyplot(fig_freq)
+
 
 
 
