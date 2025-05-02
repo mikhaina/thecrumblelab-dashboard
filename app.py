@@ -170,7 +170,7 @@ with customer_tab:
 with order_tab:
     st.subheader("🚚 Order Method Preference")
     pickup_counts = df['pickup/delivery'].value_counts()
-    fig, ax = plt.subplots(figsize=(2,2))
+    fig, ax = plt.subplots(figsize=(4, 4))
     pickup_counts.plot.pie(autopct='%1.1f%%', labels=pickup_counts.index, ax=ax, startangle=90,
                            colors=[COLOR_TAN, COLOR_BROWN])
     ax.set_ylabel("")
