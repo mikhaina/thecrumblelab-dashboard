@@ -5,16 +5,7 @@ import seaborn as sns
 
 # Page Setup
 st.set_page_config(page_title="Crumble Lab Sales Dashboard", layout="wide")
-from PIL import Image
-
-# Load and display the logo
-logo = Image.open("crumble_logo.png")
-
-col1, col2 = st.columns([1, 6])
-with col1:
-    st.image(logo, width=100)
-with col2:
-    st.markdown("<h1 style='padding-top: 20px;'>The Crumble Lab Sales Dashboard</h1>", unsafe_allow_html=True)
+st.markdown("<h1 style='text-align: center;'>🍪 The Crumble Lab: Sales Analytics Dashboard</h1>", unsafe_allow_html=True)
 
 # Load and Clean Data
 df = pd.read_csv("CrumbleLabData.csv")
