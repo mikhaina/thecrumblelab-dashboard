@@ -86,6 +86,31 @@ top5_customers = df.groupby('customer')['transaction_id'].nunique().sort_values(
 # Show as table
 st.dataframe(top5_customers.reset_index().rename(columns={'transaction_id': 'Order Count'}))
 
+# 🚚 Preferred Order Method (Pickup vs Delivery)
+st.subheader("🚚 Order Method Preference")
+
+pickup_counts = df['pickup/delivery'].value_counts()
+
+fig_pickup, ax_pickup = plt.subplots()
+pickup_counts.plot.pie(autopct='%1.1f%%', labels=pickup_counts.index, ax=ax_pickup, startangle=90)
+ax_pickup.set_ylabel("")
+ax_pickup.set_title("Pickup vs Delivery Share")
+st.pyplot(fig_pickup)
+
+# 🔁 New vs Returning Customers
+st.subheader("🔁 Customer Type Distribution")
+
+# Count number of orders per customer
+customer_orders = df.groupby('customer')['transaction_id'].nunique()
+
+# Define new vs returning
+new = customer_orders[customer_orders == 1].count()
+returning = customer_orders[customer_orders > 1].count()
+
+fig_cust, ax_cust = plt.subplots()
+ax_cust.pie([new, returning], labels=["New", "Returning"], autopct='%1.1f%%', startangle=90)
+ax_cust.set_title("New vs Returning Customers")
+st.pyplot(fig_cust)
 
 
 
