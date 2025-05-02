@@ -162,9 +162,14 @@ with customer_tab:
     col_n.metric("New Customers", new)
     col_r.metric("Returning Customers", returning)
     
-    # Slider for dynamic Pie Chart size
+    # Corrected Slider with required 'label'
     pie_size_customer = st.slider(
-        label="Pie Chart Slider", min_value=4, max_value=12, value=6, step=1, key='customer_pie'
+        label="Customer Pie Chart Size",  # This is required!
+        min_value=4, 
+        max_value=12, 
+        value=6, 
+        step=1, 
+        key='customer_pie'
     )
     
     fig, ax = plt.subplots(figsize=(pie_size_customer, pie_size_customer))
@@ -184,12 +189,17 @@ with customer_tab:
 with order_tab:
     st.subheader("🚚 Order Method Preference")
     pickup_counts = df['pickup/delivery'].value_counts()
-    
-    # Slider for dynamic Pie Chart size
+
+    # ✅ Correct: pass the label as the *first argument* to st.slider
     pie_size_order = st.slider(
-         label="Pie Chart Slider", min_value=4, max_value=12, value=6, step=1, key='order_pie'
+        "Pie Chart Slider",  # this is the label (positional argument)
+        min_value=4, 
+        max_value=12, 
+        value=6, 
+        step=1, 
+        key='order_pie'
     )
-    
+
     fig, ax = plt.subplots(figsize=(pie_size_order, pie_size_order))
     pickup_counts.plot.pie(
         autopct='%1.1f%%',
